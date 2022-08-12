@@ -52,11 +52,6 @@ EXPOSE 443 80 22
 # Define data volumes
 VOLUME ["/etc/gitlab", "/var/opt/gitlab", "/var/log/gitlab"]
 
-# Add permissions for /etc/gitlab
-RUN chown -R defaultuser /etc
-RUN chown -R defaultuser /var
-USER defaultuser
-
 # Wrapper to handle signal, trigger runit and reconfigure GitLab
 CMD ["/assets/wrapper"]
 
