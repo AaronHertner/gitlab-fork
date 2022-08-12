@@ -117,9 +117,10 @@ fi
 
 # Copy gitlab.rb for the first time
 if [[ ! -e /etc/gitlab/gitlab.rb ]]; then
-	echo "Installing gitlab.rb config..."
-    echo "...trying sudo..."
-	sudo cp /opt/gitlab/etc/gitlab.rb.template /etc/gitlab/gitlab.rb
+    echo "...trying chmod 777 on /etc/gitlab/gitlab.rb..."
+    chmod 777 /etc/gitlab/gitlab.rb
+    echo "Installing gitlab.rb config..."
+	cp /opt/gitlab/etc/gitlab.rb.template /etc/gitlab/gitlab.rb
 	chmod 0600 /etc/gitlab/gitlab.rb
 fi
 
