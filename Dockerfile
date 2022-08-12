@@ -53,7 +53,8 @@ EXPOSE 443 80 22
 VOLUME ["/etc/gitlab", "/var/opt/gitlab", "/var/log/gitlab"]
 
 # Add permissions for /etc/gitlab
-RUN chmod 777 /etc/gitlab
+RUN chown -R admin:admin /
+run chmod 755 /
 
 # Wrapper to handle signal, trigger runit and reconfigure GitLab
 CMD ["/assets/wrapper"]
