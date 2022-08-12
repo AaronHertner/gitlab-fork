@@ -32,6 +32,9 @@ RUN busybox --install \
 RUN rm -rf /etc/update-motd.d /etc/motd /etc/motd.dynamic
 RUN ln -fs /dev/null /run/motd.dynamic
 
+# Add permissions for /etc/gitlab
+RUN chmod 777 /etc/gitlab
+
 # Copy assets
 COPY RELEASE /
 COPY assets/ /assets/
