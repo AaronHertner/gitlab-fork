@@ -32,9 +32,6 @@ RUN busybox --install \
 RUN rm -rf /etc/update-motd.d /etc/motd /etc/motd.dynamic
 RUN ln -fs /dev/null /run/motd.dynamic
 
-# Add permissions for /etc/gitlab
-RUN chmod 777 /etc/gitlab
-
 # Copy assets
 COPY RELEASE /
 COPY assets/ /assets/
@@ -55,8 +52,12 @@ EXPOSE 443 80 22
 # Define data volumes
 VOLUME ["/etc/gitlab", "/var/opt/gitlab", "/var/log/gitlab"]
 
+# Add permissions for /etc/gitlab
+RUN chmod 777 /etc/gitlab
+
 # Wrapper to handle signal, trigger runit and reconfigure GitLab
 CMD ["/assets/wrapper"]
 
 HEALTHCHECK --interval=60s --timeout=30s --retries=5 \
 CMD /opt/gitlab/bin/gitlab-healthcheck --fail --max-time 10
+
