@@ -50,7 +50,7 @@ ENV TERM xterm
 EXPOSE 443 80 22
 
 # Define data volumes
-VOLUME ["/etc/gitlab", "/var/opt/gitlab", "/var/log/gitlab"]
+VOLUME ["/etc/gitlab:Z", "/var/opt/gitlab:Z", "/var/log/gitlab:Z"]
 
 # Wrapper to handle signal, trigger runit and reconfigure GitLab
 CMD ["/assets/wrapper"]
