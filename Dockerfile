@@ -52,6 +52,10 @@ EXPOSE 443 80 22
 # Define data volumes
 VOLUME ["/etc/gitlab:Z", "/var/opt/gitlab:Z", "/var/log/gitlab:Z"]
 
+# Volume debug information
+RUN whoami
+RUN ls -l /etc
+
 # Wrapper to handle signal, trigger runit and reconfigure GitLab
 CMD ["/assets/wrapper"]
 

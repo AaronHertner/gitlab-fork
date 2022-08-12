@@ -118,8 +118,8 @@ fi
 # Copy gitlab.rb for the first time
 if [[ ! -e /etc/gitlab/gitlab.rb ]]; then
     echo "Installing gitlab.rb config..."
+    echo "Operating with USER:"
     whoami
-    ls -l /etc/gitlab
 	cp /opt/gitlab/etc/gitlab.rb.template /etc/gitlab/gitlab.rb
 	chmod 0600 /etc/gitlab/gitlab.rb
 fi
