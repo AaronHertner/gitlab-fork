@@ -54,7 +54,7 @@ VOLUME ["/etc/gitlab", "/var/opt/gitlab", "/var/log/gitlab"]
 
 # Volume debug information
 #RUN chown -R 1000910000 /etc/gitlab
-#RUN chmod o+w /etc/gitlab
+RUN chmod +w /etc/gitlab
 
 # Wrapper to handle signal, trigger runit and reconfigure GitLab
 CMD ["/assets/wrapper"]
