@@ -115,16 +115,6 @@ then
     MIN_VERSION="15.0" gitlab-ctl upgrade-check "${old_version}" "${new_version}"
 fi
 
-# Copy gitlab.rb for the first time
-if [[ ! -e /etc/gitlab/gitlab.rb ]]; then
-    echo "Installing gitlab.rb config..."
-    echo "Operating with USER:"
-    whoami
-    ls -la /etc
-	cp /opt/gitlab/etc/gitlab.rb.template /etc/gitlab/gitlab.rb
-	chmod 0600 /etc/gitlab/gitlab.rb
-fi
-
 # Generate ssh host key for the first time
 if [[ ! -f /etc/gitlab/ssh_host_rsa_key ]]; then
 	echo "Generating ssh_host_rsa_key..."
