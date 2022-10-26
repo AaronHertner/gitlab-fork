@@ -1,10 +1,10 @@
 web:
   image: 'gitlab/gitlab-ce:latest'
   restart: always
-  hostname: 'gitlab.example.com'
+  hostname: 'apps.xnkpeyx0.canadacentral.aroapp.io'
   environment:
     GITLAB_OMNIBUS_CONFIG: |
-      external_url 'https://gitlab.example.com'
+      external_url 'https://apps.xnkpeyx0.canadacentral.aroapp.io'
   ports:
     - '80:80'
     - '443:443'
